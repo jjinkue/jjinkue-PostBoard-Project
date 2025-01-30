@@ -1,0 +1,488 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url("https://picsum.photos/1920/1080");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+button.secondary {
+    background: #6c757d;
+}
+
+button.secondary:hover {
+    background: #5a6268;
+}
+
+.back-button {
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.back-button:hover {
+    background: #5a6268;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    /* PostBoard: Align buttons to both sides */
+    margin-top: 20px;
+}
+
+.button-container button {
+    padding: 12px 18px;
+    font-size: 1rem;
+}
+
+.edit-post-container {
+    max-width: 500px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: auto;
+}
+
+.edit-post-container h2 {
+    margin-bottom: 15px;
+}
+
+/* Input field styling */
+.edit-post-container input,
+.edit-post-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background: #f9f9f9;
+}
+
+/* Fix for textarea alignment and resizing */
+.edit-post-container textarea {
+    resize: vertical;
+    min-height: 120px;
+    /* Increased height */
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    /* ✅ Align buttons evenly */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.button-container button {
+    flex: 1;
+    max-width: 150px;
+    /* ✅ Set a max width for both buttons */
+    padding: 12px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+button.primary {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.primary:hover {
+    background: #0056b3;
+}
+
+button.secondary {
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.secondary:hover {
+    background: #5a6268;
+}
+
+
+.create-post-container {
+    max-width: 500px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: auto;
+}
+
+/* Input field styles */
+.create-post-container input,
+.create-post-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    background: #f9f9f9;
+}
+
+/* Adjust textarea height */
+.create-post-container textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Button alignment fix */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.button-container button {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+button.primary {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.primary:hover {
+    background: #0056b3;
+}
+
+button.secondary {
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.secondary:hover {
+    background: #5a6268;
+}
+
+
+
+/* Buttons adjustment */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.button-container button {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.button-container button {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+}
+
+button.primary {
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.primary:hover {
+    background: #0056b3;
+}
+
+button.secondary {
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.secondary:hover {
+    background: #5a6268;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+}
+
+.login-container input {
+    width: 100%;
+    max-width: 350px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.login-container input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.login-container button:hover {
+    background: #0056b3;
+}
+
+
+.post-table {
+    width: 100%;
+    max-width: 1000px;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.post-table th,
+.post-table td {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.post-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    /* PostBoard: Table header style */
+}
+
+.post-table tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+
+.post-detail-card {
+    max-width: 500px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px auto;
+    /* PostBoard: Card style for post details */
+
+}
+
+.post-detail-card h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.post-detail-card .author {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.post-detail-card .view-count {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.post-detail-card .content {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+
+.not-found {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.not-found h2 {
+    font-size: 2rem;
+    color: #ff4d4d;
+}
+
+.not-found p {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.not-found button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.not-found button:hover {
+    background: #0056b3;
+}
+
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+h1,
+h2 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.post-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.post-card {
+    width: 90%;
+    max-width: 600px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.post-card p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.post-card .author {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.post-card a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
