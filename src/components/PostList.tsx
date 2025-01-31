@@ -12,21 +12,29 @@ interface Post {
 const PostList: React.FC = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const navigate = useNavigate();
+    const token = localStorage.getItem("token");
 
     useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const response = await fetch("http://localhost:5001/api/posts");
-                if (response.ok) {
-                    const data = await response.json();
-                    setPosts(data);
+        if (!token) {
+            alert("You need to log in to access posts.");
+            navigate("/login");
+        }
+        else {
+            const fetchPosts = async () => {
+                try {
+                    const response = await fetch("http://localhost:5001/api/posts");
+                    if (response.ok) {
+                        const data = await response.json();
+                        setPosts(data);
+                    }
+                } catch (error) {
+                    console.error("Error fetching post:", error);
                 }
-            } catch (error) {
-                console.error("Error fetching post:", error);
-            }
-        };
+            };
 
-        fetchPosts();
+            fetchPosts();
+        }
+
     }, []);
 
     const handleLogout = () => {

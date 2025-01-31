@@ -1,9 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../db");
+const authenticateToken = require("./authMiddleware");
 
 // Get all posts
-router.get("/", async (req, res) => {
+router.get("/", authenticateToken, async (req, res) => {
     try {
         const [rows] = await pool.query(`
             SELECT posts.id, posts.title, posts.content, users.username AS author, posts.view_count, posts.created_at,
