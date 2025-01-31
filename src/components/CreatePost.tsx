@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const CreatePost: React.FC = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -14,7 +15,7 @@ const CreatePost: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:5001/api/posts", {
+            const response = await fetch(`${API_BASE_URL}/api/posts`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

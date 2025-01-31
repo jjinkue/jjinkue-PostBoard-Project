@@ -41,6 +41,33 @@ router.post("/", async (req, res) => {
     }
 });
 
+// Get a single post by ID
+router.get("/:id", async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        console.log(`📌 [Fetch post request] post_id: ${id}`);
+
+        // Check if post exists
+        const [rows] = await pool.query(`
+            SELECT posts.id, posts.title, posts.content, users.username AS author, posts.view_count, posts.created_at,
+            DATE_FORMAT(posts.created_at, '%Y-%m-%d') AS formatted_date
+            FROM posts
+            JOIN users ON posts.author_id = users.id
+            WHERE posts.id = ?
+        `, [id]);
+
+        if (rows.length === 0) {
+            return res.status(404).json({ message: "Post not found." }); // If no post found, return 404
+        }
+
+        res.json(rows[0]); // Return the post details
+    } catch (error) {
+        console.error("❌ Error fetching post:", error);
+        res.status(500).json({ message: "Server error" });
+    }
+});
+
 // Increase post view count
 router.patch("/:id/view", async (req, res) => {
     const { id } = req.params;

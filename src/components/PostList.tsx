@@ -9,6 +9,7 @@ interface Post {
     formatted_date: string;
 }
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const PostList: React.FC = () => {
     const [posts, setPosts] = useState<Post[]>([]);
     const navigate = useNavigate();
@@ -22,7 +23,13 @@ const PostList: React.FC = () => {
         else {
             const fetchPosts = async () => {
                 try {
-                    const response = await fetch("http://localhost:5001/api/posts");
+                    const response = await fetch(`${API_BASE_URL}/api/posts`, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            Authorization: `Bearer ${token}`
+                        },
+                    });
                     if (response.ok) {
                         const data = await response.json();
                         setPosts(data);

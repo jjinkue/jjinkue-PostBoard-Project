@@ -10,6 +10,7 @@ interface Post {
     formatted_date: string;
 }
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const PostDetail: React.FC = () => {
     const [post, setPost] = useState<Post | null>(null);
     const [viewCount, setViewCount] = useState<number>(0);
@@ -21,7 +22,12 @@ const PostDetail: React.FC = () => {
     useEffect(() => {
         const fetchPost = async () => {
             try {
-                const response = await fetch(`http://localhost:5001/api/posts/${id}`);
+                const response = await fetch(`${API_BASE_URL}/api/posts/${id}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                });
                 if (response.ok) {
                     const data = await response.json();
                     setPost(data);
@@ -40,9 +46,11 @@ const PostDetail: React.FC = () => {
         // Increase view count only once
         if (!hasUpdatedView.current) {
             hasUpdatedView.current = true;
-            fetch(`http://localhost:5001/api/posts/${id}/view`, {
+            fetch(`${API_BASE_URL}/api/posts/${id}/view`, {
                 method: "PATCH",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json"
+                },
             })
                 .then(response => response.json())
                 .then(data => {
@@ -62,7 +70,7 @@ const PostDetail: React.FC = () => {
         if (!window.confirm("Are you sure you want to delete this post?")) return;
 
         try {
-            const response = await fetch(`http://localhost:5001/api/posts/${id}`, {
+            const response = await fetch(`${API_BASE_URL}/api/posts/${id}`, {
                 method: "DELETE",
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,

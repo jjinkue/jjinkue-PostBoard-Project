@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 const EditPost: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ const EditPost: React.FC = () => {
         if (!title || !content) {
             const fetchPost = async () => {
                 try {
-                    const response = await fetch(`http://localhost:5001/api/posts/${id}`);
+                    const response = await fetch(`${API_BASE_URL}/api/posts/${id}`);
                     if (response.ok) {
                         const data = await response.json();
                         setTitle(data.title);
@@ -31,7 +32,7 @@ const EditPost: React.FC = () => {
     const handleUpdate = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:5001/api/posts/${id}`, {
+            const response = await fetch(`${API_BASE_URL}/api/posts/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
