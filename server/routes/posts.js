@@ -87,4 +87,46 @@ router.patch("/:id/view", async (req, res) => {
     }
 });
 
+// Delete a post by ID
+router.delete("/:id", async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        const [result] = await pool.query("DELETE FROM posts WHERE id = ?", [id]);
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: "Post not found." });
+        }
+
+        res.json({ message: "Post deleted successfully." });
+    } catch (error) {
+        console.error("Error deleting post:", error);
+        res.status(500).json({ message: "Server error." });
+    }
+});
+
+// Update a post by ID
+router.patch("/:id", async (req, res) => {
+    const { id } = req.params;
+    const { title, content } = req.body;
+
+    try {
+        const [result] = await pool.query(
+            "UPDATE posts SET title = ?, content = ? WHERE id = ?",
+            [title, content, id]
+        );
+
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ message: "Post not found." });
+        }
+
+        res.json({ message: "Post updated successfully." });
+    } catch (error) {
+        console.error("Error updating post:", error);
+        res.status(500).json({ message: "Server error." });
+    }
+});
+
+
+
 module.exports = router;
