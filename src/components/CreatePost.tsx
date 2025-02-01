@@ -8,10 +8,6 @@ const CreatePost: React.FC = () => {
     const navigate = useNavigate();
     const username = localStorage.getItem("username"); // Retrieve the logged-in username
 
-    const handleLogout = () => {
-        localStorage.removeItem("token");
-        navigate("/login");
-    };
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
@@ -50,7 +46,7 @@ const CreatePost: React.FC = () => {
                     required
                 />
                 <div className="button-container">
-                    <button className="secondary" onClick={handleLogout}>Logout</button>
+                    <button className="secondary" onClick={() => navigate(-1)}>Back to list</button>
                     <button className="primary" onClick={() => navigate("/create-post")}>Create a New Post</button>
                 </div>
             </form>
